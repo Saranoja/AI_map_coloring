@@ -1,14 +1,15 @@
-# X = ['WA', 'SA', 'NT']
-# D = [{'B'}, {'B'}, {'G'}]
-# adjacency_dict = {
-#     'WA': {'SA', 'NT'},
-#     'SA': {'WA', 'NT'},
-#     'NT': {'WA', 'SA'},
-# }
+X1 = ['WA', 'SA', 'NT']
+D1 = [{'R', 'G', 'B'}, {'R', 'G'}, {'G'}]
+adjacency_dict1 = {
+    'WA': {'SA', 'NT'},
+    'SA': {'WA', 'NT'},
+    'NT': {'WA', 'SA'},
+}
+# C = [('WA', 'SA'), ('SA', 'WA'), ('WA', 'NT'), ('NT', 'WA'), ('SA', 'NT'), ('NT', 'SA')]
 
-X = ['T', 'WA', 'SA', 'NT', 'Q', 'NSW', 'V']
-D = [{'R', 'B', 'G'}, {'R'}, {'R', 'B', 'G'}, {'R', 'B', 'G'}, {'G'}, {'R', 'B', 'G'}, {'R', 'B', 'G'}]
-adjacency_dict = {
+X2 = ['T', 'WA', 'SA', 'NT', 'Q', 'NSW', 'V']
+D2 = [{'R', 'B', 'G'}, {'R'}, {'R', 'B', 'G'}, {'R', 'B', 'G'}, {'G'}, {'R', 'B', 'G'}, {'R', 'B', 'G'}]
+adjacency_dict2 = {
     'T': {'V'},
     'WA': {'NT', 'SA'},
     'NT': {'WA', 'Q', 'SA'},
@@ -17,12 +18,14 @@ adjacency_dict = {
     'NSW': {'Q', 'SA', 'V'},
     'V': {'SA', 'NSW', 'T'}
 }
+# C = [('T', 'V'), ('WA', 'NT'), ('WA', 'SA'), ('NT', 'Q'), ('NT', 'SA'), ('NT', 'WA'), ('SA', 'V'), ('SA', 'WA'),
+# ('SA', 'Q'), ('SA', 'NT'), ('SA', 'NSW'), ('Q', 'NT'), ('Q', 'NSW'), ('Q', 'SA'), ('NSW', 'Q'), ('NSW', 'SA'),
+# ('NSW', 'V'), ('V', 'NSW'), ('V', 'SA'), ('V', 'T')]
 
+X = X1
+D = D1
+adjacency_dict = adjacency_dict1
 
-# C = [('WA', 'SA'), ('SA', 'WA'), ('WA', 'NT'), ('NT', 'WA'), ('SA', 'NT'), ('NT', 'SA')]
-
-# for k, v in adjacency_dict.items():
-#     print(f'{k} = {v}')
 
 def get_constraint_queue(d):
     C = []
@@ -49,7 +52,6 @@ def revise(i, j):
     return revised
 
 
-# C = [('WA', 'SA'), ('SA', 'WA'), ('WA', 'NT'), ('NT', 'WA'), ('SA', 'NT'), ('NT', 'SA')]
 def arc_consistency(X, D, queue: list):
     while queue:
         Xi, Xj = queue.pop()
